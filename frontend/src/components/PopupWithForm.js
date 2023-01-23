@@ -1,8 +1,13 @@
 import closeButton from '../images/CloseIcon.svg';
 
 function PopupWithForm(props) {
+  function clickClose(e) {
+    if (e.target === e.currentTarget) {
+      props.onClose();
+    }
+  }
   return (
-    <div className={`popup popup_${props.name} ${props.isOpen && 'popup_opened'}`} id={`popup_${props.name}`}>
+    <div className={`popup popup_${props.name} ${props.isOpen && 'popup_opened'}`} id={`popup_${props.name}`} onClick={clickClose}>
       <form className="popup__form popup__form_edit" onSubmit={props.onSubmit} name={props.name} id={`popupFormEdit_${props.name}`} noValidate>
         <h2 className="popup__title">{`${props.title}`}</h2>
         {props.children}

@@ -1,8 +1,13 @@
 import closeIcon from '../images/CloseIcon.svg';
 
 function ImagePopup(props) {
+  function clickClose(e) {
+    if (e.target === e.currentTarget) {
+      props.onClose();
+    }
+  }
   return (
-    <div className={`popup popup_image ${props.card && 'popup_opened'}`} id="popup_image">
+    <div className={`popup popup_image ${props.card && 'popup_opened'}`} id="popup_image" onClick={clickClose}>
       <div className="zoom">
         <figure className="zoom__container">
           <img className="zoom__img" src={props.card?.link} alt={props.card?.name} />

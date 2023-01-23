@@ -69,7 +69,6 @@ function App() {
     setLoggedIn(false);
     localStorage.clear();
     setDataUser('');
-    // setCurrentUser([]);
   }, []);
 
 
@@ -115,8 +114,8 @@ function App() {
         setDataUser(user);
         setLoggedIn(true);
       }
-    };
-  }, []);
+    }
+  }, [loggedIn]);
 
   function handleEditAvatarClick() {
     setIsEditAvatarPopupOpen(true);
@@ -133,7 +132,7 @@ function App() {
   function handleInfoTollTipClick() {
     setInfoTooltipOpen(true);
   }
-  function closeAllPopups(set) {
+  function closeAllPopups(set, e) {
     set(false);
   }
   function handleUpdateUser({ name, about }) {
